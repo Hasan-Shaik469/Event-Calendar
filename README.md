@@ -73,3 +73,15 @@ event-calendar/
  Differentiate days outside current month
 
 
+## Demo Images
+
+![image](https://github.com/user-attachments/assets/75713b18-ab97-49cc-8105-ee57438a6e85)
+
+![image](https://github.com/user-attachments/assets/333deafb-b028-49d7-9367-641d2b22e8fa)
+
+![image](https://github.com/user-attachments/assets/4656ef01-9a6f-48c6-aad1-96125cb78e10)
+
+
+
+
+
