@@ -35,7 +35,7 @@ A responsive and customizable event calendar built with **React.js**. This app a
 git clone https://github.com/your-username/custom-event-calendar.git
 
 # Navigate into the project folder
-cd custom-event-calendar
+cd event-calendar
 
 # Install dependencies
 npm install
@@ -46,20 +46,21 @@ npm start
 
 ##  File Structure
 ```bash
-event-calendar/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Calendar.jsx
-│   │   ├── DayCell.jsx
-│   │   ├── EventItem.jsx
-│   │   └── EventModal.jsx
-│   ├── utils/
-│   │   └── storage.js
-│   ├── App.jsx
-│   ├── index.js
+src/
+├── components/
+│   ├── Calendar.jsx
+│   ├── CalendarHeader.jsx
+│   ├── DayCell.jsx
+│   ├── EventItem.jsx
+│   ├── EventModal.jsx
+├── utils/
+│   ├── dateUtils.js
+│   ├── storage.js
+├── styles/
 │   └── calendar.css
-├── package.json
+├── App.jsx
+├── index.js
+
 ```
 
 ## UI Highlights
