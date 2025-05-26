@@ -1,0 +1,315 @@
+/*
+body {
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.weekday-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.day-cell-wrapper {
+  min-height: 100px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.day-cell {
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.day-cell.not-current-month {
+  background: #f0f0f0;
+  color: #999;
+}
+
+.day-cell.today {
+  border: 2px solid #3174ad;
+}
+
+.date-number {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.events-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 80px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  width: 350px;
+}
+
+.modal form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+*/
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fc;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.calendar-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-button {
+  background-color: #e1eaff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #c8dfff;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2d3e50;
+  margin: 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.weekday-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: #e8f0fe;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #444;
+}
+
+.day-cell-wrapper {
+  min-height: 100px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  border-radius: 6px;
+  transition: box-shadow 0.2s;
+}
+
+.day-cell-wrapper:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.day-cell {
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.day-cell.not-current-month {
+  background: #e8e9eb;
+  color: #999;
+}
+
+.day-cell.today {
+  border: 2px solid #4f60f3;
+  background-color: #c9e5f1;
+}
+
+.date-number {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.events-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 80px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal form label {
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.modal form input,
+.modal form textarea,
+.modal form select {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.modal form input:focus,
+.modal form textarea:focus,
+.modal form select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.modal button {
+  padding: 10px 18px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #357ab8;
+}
+
+.modal button[type="button"]:nth-child(2) {
+  background-color: #e94e4e;
+}
+
+.modal button[type="button"]:nth-child(2):hover {
+  background-color: #c94040;
+}
+
+.modal button[type="button"]:last-child {
+  background-color: #aaa;
+}
+
+.modal button[type="button"]:last-child:hover {
+  background-color: #888;
+}
+
+
+.search-input {
+  width: 100%;
+  max-width: 870px;
+  margin: 10px auto 20px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  outline: none;
+  transition: 0.2s border ease;
+  display: block;
+}
+
+.search-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
