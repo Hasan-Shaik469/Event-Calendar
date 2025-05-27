@@ -82,6 +82,10 @@ src/
 
 ![image](https://github.com/user-attachments/assets/4656ef01-9a6f-48c6-aad1-96125cb78e10)
 
+###  Responsive Image
+
+![image](https://github.com/user-attachments/assets/9b1c5117-539c-4aa4-8aa2-96c94edb42ab)
+
 
 
 
